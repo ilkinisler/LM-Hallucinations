@@ -153,15 +153,16 @@ Misidentifying or misattributing content as hallucinated can have legal and repu
 
 [Calibrated Language Models Must Hallucinate](https://dl.acm.org/doi/pdf/10.1145/3618260.3649777?casa_token=L8p0VzgusuYAAAAA:nwr88f3K4WCdgDYjrygjS8J4ueu-5QRtlBF2sTn04YQNe69VbKmniSk_6zmoyWUnYoNts978GBqK6g)
    - **Take-Aways**:
-     - Why Hallucinations Are Inherent:
-       - Arbitrary Facts: Hallucinations occur more frequently for facts that are rare or arbitrary (e.g., unique events or names) because their veracity cannot be determined from the training data.
-       - Calibration Trade-Off: To maintain accurate confidence levels in predictions, calibrated LLMs may hallucinate, especially for facts that appear only once in the training data.
-     - Hallucination Lower Bound:
-        - The rate of hallucination for arbitrary facts is tied to the Good-Turing estimate (fraction of facts appearing exactly once in the training data).
-        - Even under ideal conditions (perfect data, no errors), hallucinations are inevitable for facts not sufficiently represented in the training corpus.
-      - Different Types of Facts:
-         - Systematic Facts: Facts governed by rules (e.g., arithmetic) are less prone to hallucination because they can be learned systematically.
-         - Arbitrary Facts: Facts like references to publications or specific events are prone to hallucination because they cannot be inferred from patterns in training data.
-       - Impact of Model Calibration:
-          - A well-calibrated model predicts outputs with probabilities that reflect true likelihoods but does not necessarily minimize hallucinations.
-          - Post-training alignment techniques reduce hallucination rates but can harm calibration accuracy.
+   - Calibrated Models Inevitably Hallucinate:
+       - The paper concludes that hallucinations in language models (LLMs) are not merely a result of poor training or inadequate data but are statistically inevitable for calibrated models when dealing with rare or arbitrary facts.
+       - This finding emphasizes that even in idealized scenarios (perfect training data, no errors), hallucinations cannot be entirely avoided for certain categories of facts.
+   - Good-Turing Estimate and Hallucination Rates:
+       - The hallucination rate for arbitrary facts correlates closely with the Good-Turing estimate, which quantifies the fraction of facts that appear only once in the training data.
+       - This means that the more sparse or unique the facts in the dataset, the higher the hallucination rates are likely to be, even for well-calibrated models.
+   - Role of Calibration:
+       - Calibration ensures that a model's predicted probabilities reflect the true likelihood of events, but this statistical accuracy doesn't guarantee factual reliability.
+       - There’s a trade-off between reducing hallucinations and maintaining accurate calibration: post-training methods that reduce hallucinations (e.g., reinforcement learning) often compromise calibration quality.
+    - Systematic vs. Arbitrary Facts:
+       - Models are less prone to hallucinations with systematic facts (e.g., mathematical or rule-based information) because these are learnable from patterns.
+       - Arbitrary facts (e.g., unique events or citations) are inherently more challenging since their likelihood cannot be generalized from limited data.
+    
