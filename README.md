@@ -25,9 +25,7 @@ Lack of universally accepted definitions and metrics for hallucination leads to 
 Differentiating between true and synthetic data, especially in large-scale corpora, is challenging.
 Language models often blend accurate facts with hallucinations, making detection harder.
 - **Evaluation Benchmarks**:
-Current benchmarks focus on synthetic tasks but fail to generalize to real-world use cases or specialized domains like healthcare or law.
-- **Scalability and Real-Time Analysis**:
-Scaling hallucination detection methods to handle the output of state-of-the-art models in real time is computationally intensive.
+Current benchmarks focus on synthetic tasks but fail to generalize to real-world use cases or specialized domains.
 - **Lack of Grounded Data**:
 Models trained on noisy or biased data inherit these flaws, exacerbating hallucination problems.
 - **Ethical and Legal Concerns**:
@@ -76,20 +74,18 @@ Misidentifying or misattributing content as hallucinated can have legal and repu
    - **Key Findings**: Textual entailment measures better correlate with faithfulness than standard metrics. 
    - **License**: Creative Commons Attribution 4.0 International (CC BY 4.0).
 
-3. **SELFCHECKGPT**: [Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models](https://arxiv.org/pdf/2303.08896) (EMNLP 2023) [GitHub](https://github.com/potsawee/selfcheckgpt)
-   - **Context**: A zero-resource hallucination detection method. Does not require access to the model's probability distributions nor external databases. It evaluates factuality using sampling-based consistency checks:
-     - For a given prompt, multiple outputs are sampled.
-     - If the model "knows" the fact, sampled outputs are consistent and factual.
-     - Hallucinated facts lead to divergence in the sampled outputs. 
-   - **Performance**: Can be adapted for any LLM.
+3. **SelfCheckGPT**: [Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models](https://arxiv.org/pdf/2303.08896) (EMNLP 2023) [GitHub](https://github.com/potsawee/selfcheckgpt)
+   - **Context**: A zero-resource hallucination detection method. Does not require access to the model's probability distributions nor external databases. If the model is knowledgeable, responses should be consistent; inconsistent responses indicate hallucinations.
+     - **Details**: Compares the original response with multiple stochastically sampled responses using methods like BERTScore, question-answering, and natural language inference (NLI).
+   - **Strenghts**: Works without external databases, making it suitable for APIs like ChatGPT.
+   - **Metrics**:
      - Sentence-Level Hallucination Detection: Measures how effectively SelfCheckGPT detects non-factual sentences.
      - Passage-Level Factuality Assessment: Ranks passages based on their overall factuality.
    - **License**: MIT.
 
 4. **SAC3**: [Reliable Hallucination Detection in Black-Box Language Models](https://arxiv.org/pdf/2311.01740) (EMNLP 2023) [GitHub](https://github.com/intuit/sac3)
-   - **Context**: Builds on the concept of self-consistency checks by adding semantic and cross-model evaluations. The approach addresses two types of hallucinations:
-     - **Question-Level Hallucinations**: Misunderstandings of the input question.
-     - **Model-Level Hallucinations**: Inaccuracies due to the model's internal limitations.
+   - **Context**: Builds on the concept of self-consistency checks by adding semantic and cross-model evaluations. The approach addresses two types of hallucinations: question-level (misunderstandings of the input question) and model-level hallucinations (inaccuracies due to the model's internal limitations).
+     - **Details**: Uses semantically equivalent rephrasing of questions and compares responses across different models to detect inconsistencies.
    - **Key Findings**:
      - Limitations of Existing Methods: Standard self-consistency checks (e.g., sampling-based methods) often fail to detect certain types of hallucinations, particularly those stemming from: (1) Ambiguous or rephrased questions or (2) Model-specific biases or limitations.
    - **Performance**: SAC3 outperforms prior methods in detecting hallucinations, particularly in challenging cases involving question rephrasings or different model architectures. Makes QA systems more robust to question phrasing and contextual ambiguities. Extends beyond QA to any generative task requiring factual reliability, such as summarization or information retrieval.
@@ -99,6 +95,9 @@ Misidentifying or misattributing content as hallucinated can have legal and repu
 
 5. **MIND**: [Unsupervised Real-Time Hallucination Detection Based on Internal States](https://arxiv.org/pdf/2403.06448) (ACL 2024) [GitHub](https://github.com/oneal2000/MIND/tree/main)
    - **Context**: Uses LLM internal states during inference for real-time detection. It also presents HELM, a benchmark.
+      - **Details**: Uses a multi-layer perceptron (MLP) to classify hallucinations based on token embeddings during the inference process.
+   - **Strengths**: Real-time detection reduces computational overhead, and its unsupervised nature eliminates the need for labeled data.
+
 
 6. [Detecting Hallucinations in LLM Generation: A Token Probability Approach](https://arxiv.org/pdf/2405.19648) (May 2024) [GitHub](https://github.com/Baylor-AI/HalluDetect)
    - **Context**: A supervised learning approach for detecting hallucinations in outputs generated by large language models (LLMs). The approach is lightweight, using minimal features derived from token probabilities, and does not require the hallucination detection model to be the same as the LLM that generated the content.
@@ -147,3 +146,22 @@ Misidentifying or misattributing content as hallucinated can have legal and repu
        - Constructing a graph structure based on those embeddings.
        - Using a pre-trained or custom-trained GAT to detect hallucinations.
 
+
+---
+
+## Important resources
+
+[Calibrated Language Models Must Hallucinate](https://dl.acm.org/doi/pdf/10.1145/3618260.3649777?casa_token=L8p0VzgusuYAAAAA:nwr88f3K4WCdgDYjrygjS8J4ueu-5QRtlBF2sTn04YQNe69VbKmniSk_6zmoyWUnYoNts978GBqK6g)
+   - **Take-Aways**:
+     - Why Hallucinations Are Inherent:
+       - Arbitrary Facts: Hallucinations occur more frequently for facts that are rare or arbitrary (e.g., unique events or names) because their veracity cannot be determined from the training data.
+       - Calibration Trade-Off: To maintain accurate confidence levels in predictions, calibrated LLMs may hallucinate, especially for facts that appear only once in the training data.
+     - Hallucination Lower Bound:
+        - The rate of hallucination for arbitrary facts is tied to the Good-Turing estimate (fraction of facts appearing exactly once in the training data).
+        - Even under ideal conditions (perfect data, no errors), hallucinations are inevitable for facts not sufficiently represented in the training corpus.
+      - Different Types of Facts:
+         - Systematic Facts: Facts governed by rules (e.g., arithmetic) are less prone to hallucination because they can be learned systematically.
+         - Arbitrary Facts: Facts like references to publications or specific events are prone to hallucination because they cannot be inferred from patterns in training data.
+       - Impact of Model Calibration:
+          - A well-calibrated model predicts outputs with probabilities that reflect true likelihoods but does not necessarily minimize hallucinations.
+          - Post-training alignment techniques reduce hallucination rates but can harm calibration accuracy.
