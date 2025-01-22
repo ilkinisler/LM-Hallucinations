@@ -60,3 +60,116 @@ SITUATEDQA: An open-retrieval QA dataset where systems must produce the correct 
 - [Tool Name](https://example.com) - Description.
 
 ---
+
+
+## 🛠️ Methods and Details
+
+### 1. **TruthfulQA: Measuring How Models Mimic Human Falsehoods** (2022)
+- **Context**: Benchmark for identifying when models mimic human falsehoods.
+- **Details**: Fine-tuned models are specific to TruthfulQA and are not expected to generalize.
+- **Performance**: ~90-95% validation accuracy across all model classes.
+- **Applications**: Education, policy-making, customer support systems.
+- **Source Code**: [GitHub](https://github.com/)
+- **License**: Apache-2.0.
+
+---
+
+### 2. **REALM / ORQA**
+- **Context**: Combines masked language models with a differentiable retriever.
+- **Details**: Explored only in open-domain extractive QA.
+- **Source Code**: [REALM GitHub](https://github.com/), [ORQA GitHub](https://github.com/)
+- **License**: Apache-2.0.
+
+---
+
+### 3. **Retrieval Augmented Generation for Knowledge Intensive NLP Tasks** (2020)
+- **Context**: Enhances knowledge retrieval for fact-intensive tasks like QA and summarization.
+- **Details**: Combines pre-trained parametric memory (BART seq2seq) and non-parametric memory (Wikipedia).
+- **Performance**: SOTA performance on Open-Domain QA tasks; grounded outputs via retrieval.
+- **Challenges**: Computationally expensive, dependent on retrieval corpus quality.
+- **Source Code**: [HuggingFace](https://huggingface.co/).
+- **License**: Apache-2.0.
+
+---
+
+### 4. **Retrieval Augmentation Reduces Hallucination in Conversation** (2021)
+- **Context**: Focuses on knowledge-grounded conversational tasks.
+- **Performance**: SOTA on two knowledge-grounded tasks.
+- **Source Code**: [Parl.ai](https://parl.ai/).
+- **License**: MIT.
+
+---
+
+### 5. **On Faithfulness and Factuality in Abstractive Summarization** (2020)
+- **Context**: Introduces new evaluation frameworks and datasets.
+- **Performance**: Textual entailment measures correlate better with faithfulness than standard metrics.
+- **Challenges**: High hallucination rates in existing models.
+- **Source Code**: [GitHub](https://github.com/).
+- **License**: Creative Commons Attribution 4.0 International (CC BY 4.0).
+
+---
+
+### 6. **SITUATEDQA: Incorporating Extra-Linguistic Contexts into QA** (2021)
+- **Context**: Open-retrieval QA dataset with temporal and geographical contexts.
+- **Performance**: Models struggle with context-dependent answers.
+- **Source Code**: [GitHub](https://github.com/).
+
+---
+
+### 7. **SELFCHECKGPT: Zero-Resource Black-Box Hallucination Detection**
+- **Details**: A zero-resource hallucination detection method.
+- **Source Code**: [GitHub](https://github.com/).
+
+---
+
+### 8. **Reference-Free Hallucination Detection for Large Vision-Language Models**
+- **Details**: Uses uncertainty and consistency-based methods without external tools.
+
+---
+
+### 9. **SAC3: Reliable Hallucination Detection in Black-Box Language Models** (EMNLP 2023)
+- **Details**: Uses semantically equivalent question perturbations and cross-model response consistency checks.
+- **Source Code**: [GitHub](https://github.com/).
+
+---
+
+### 10. **Unsupervised Real-Time Hallucination Detection Based on Internal States** (ACL 2024)
+- **Details**: Uses LLM internal states during inference for real-time detection.
+- **Source Code**: [GitHub](https://github.com/).
+
+---
+
+### 11. **Detecting Hallucinations in LLM Generation: A Token Probability Approach**
+- **Details**: Simple classifiers using token and vocabulary probabilities outperform SOTA outcomes.
+- **Source Code**: [GitHub](https://github.com/).
+
+---
+
+### 12. **Hallucination Detection: Discerning Reliable Answers in LLMs**
+- **Details**: The RelD discriminator analyzes bilingual Q&A datasets to detect hallucinations.
+
+---
+
+### 13. **Fine-Grained Hallucination Detection and Editing for LLMs**
+- **Details**: Retrieval-augmented models like FAVA detect and correct hallucinations effectively.
+- **Source Code**: [GitHub](https://github.com/).
+
+---
+
+### 14. **Detecting and Preventing Hallucinations in Vision-Language Models**
+- **Details**: Combines fine-grained annotations and visual-textual inputs.
+
+---
+
+### 15. **Leveraging Graph Structures to Detect Hallucinations in LLMs**
+- **Details**: Uses Graph Attention Networks (GATs) to detect hallucinations robustly.
+- **Source Code**: [GitHub](https://github.com/).
+
+---
+
+## 📄 Licensing
+- **Apache-2.0**: [TruthfulQA](https://github.com/), [REALM](https://github.com/), [ORQA](https://github.com/).
+- **MIT**: [Parl.ai](https://parl.ai/).
+- **Creative Commons Attribution 4.0**: [Faithfulness and Factuality](https://github.com/).
+
+---
