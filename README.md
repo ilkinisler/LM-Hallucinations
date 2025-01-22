@@ -36,25 +36,25 @@ Misidentifying or misattributing content as hallucinated can have legal and repu
 ---
 
 ## Benchmarks and Evaluation Metrics
-1. **TruthfulQA**: [Measuring How Models Mimic Human Falsehoods](https://arxiv.org/pdf/2109.07958) (2022) [![Star](https://img.shields.io/github/stars/LisaAnne/Hallucination.svg?style=social&label=Star)](https://github.com/sylinrl/TruthfulQA)
+1. **TruthfulQA**: [Measuring How Models Mimic Human Falsehoods](https://arxiv.org/pdf/2109.07958) (2022) [GitHub](https://github.com/sylinrl/TruthfulQA)
      - Benchmark for identifying when models mimic human falsehoods.
      - Composed of 817 questions across 38 diverse categories, including health, law, politics, and finance.
      - Questions are designed to provoke false answers by mirroring misconceptions or errors commonly propagated by humans.
           - **Truthfulness**: Measures the percentage of responses that align with factual correctness.
           - **Informativeness**: Assesses how relevant and meaningful the responses are while maintaining truthfulness.
 
-3. **SituatedQA**: [Incorporating Extra-Linguistic Contexts into QA](https://aclanthology.org/2021.emnlp-main.586.pdf) (2021) [![Star](https://img.shields.io/github/stars/LisaAnne/Hallucination.svg?style=social&label=Star)](https://situatedqa.github.io/)
+3. **SituatedQA**: [Incorporating Extra-Linguistic Contexts into QA](https://aclanthology.org/2021.emnlp-main.586.pdf) (2021) [GitHub](https://situatedqa.github.io/)
      - Benchmark for evaluating question-answering (QA) systems on context-dependent questions that require consideration of temporal (time-based) and geographical (location-based) contexts.
      - Highlights how traditional QA systems fail to adapt to context-specific scenarios, limiting their reliability in dynamic or globally diverse applications.
           - **Context-Dependent Accuracy**: Common vs. Rare Locations and Updated vs. Stable Facts
           - **Exact Match (EM) Accuracy, Recall, Precision, and F1 Score**
 
-5. **MIND**: [Unsupervised Real-Time Hallucination Detection Based on Internal States](https://arxiv.org/pdf/2403.06448) (ACL 2024) [![Star](https://img.shields.io/github/stars/LisaAnne/Hallucination.svg?style=social&label=Star)](https://github.com/oneal2000/MIND/tree/main)
+5. **MIND**: [Unsupervised Real-Time Hallucination Detection Based on Internal States](https://arxiv.org/pdf/2403.06448) (ACL 2024) [GitHub](https://github.com/oneal2000/MIND/tree/main)
      - HELM Benchmark, standardizes the evaluation of hallucination detection, providing robust metrics for comparison. It includes outputs from multiple LLMs, with a focus on:
       - Diverse tasks (e.g., summarization, question answering).
       - Internal model states during hallucination-prone scenarios.
     
-8. [Fine-Grained Hallucination Detection and Editing for LLMs](https://arxiv.org/pdf/2401.06855) [![Star](https://img.shields.io/github/stars/LisaAnne/Hallucination.svg?style=social&label=Star)](https://fine-grained-hallucination.github.io/)
+8. [Fine-Grained Hallucination Detection and Editing for LLMs](https://arxiv.org/pdf/2401.06855) [GitHub](https://fine-grained-hallucination.github.io/)
     - FavaBench Benchmark:
      - Includes ~1,000 fine-grained human judgments on outputs from ChatGPT, Llama2-Chat (70B, 7B), and others.
      - Evaluates hallucination detection across multiple domains, focusing on both detection and correction tasks.
