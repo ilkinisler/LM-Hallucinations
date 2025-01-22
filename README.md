@@ -55,9 +55,9 @@ Misidentifying or misattributing content as hallucinated can have legal and repu
         - Internal model states during hallucination-prone scenarios.
     
 8. [Fine-Grained Hallucination Detection and Editing for LLMs](https://arxiv.org/pdf/2401.06855) [GitHub](https://fine-grained-hallucination.github.io/)
-    - FavaBench Benchmark:
-     - Includes ~1,000 fine-grained human judgments on outputs from ChatGPT, Llama2-Chat (70B, 7B), and others.
-     - Evaluates hallucination detection across multiple domains, focusing on both detection and correction tasks.
+     - FavaBench Benchmark:
+       - Includes ~1,000 fine-grained human judgments on outputs from ChatGPT, Llama2-Chat (70B, 7B), and others.
+       - Evaluates hallucination detection across multiple domains, focusing on both detection and correction tasks.
 
 
 ---
@@ -81,10 +81,10 @@ Misidentifying or misattributing content as hallucinated can have legal and repu
      - For a given prompt, multiple outputs are sampled.
      - If the model "knows" the fact, sampled outputs are consistent and factual.
      - Hallucinated facts lead to divergence in the sampled outputs. 
-       - **Performance**: Can be adapted for any LLM.
+   - **Performance**: Can be adapted for any LLM.
      - Sentence-Level Hallucination Detection: Measures how effectively SelfCheckGPT detects non-factual sentences.
      - Passage-Level Factuality Assessment: Ranks passages based on their overall factuality.
-  - **License**: MIT.
+   - **License**: MIT.
 
 4. **SAC3**: [Reliable Hallucination Detection in Black-Box Language Models](https://arxiv.org/pdf/2311.01740) (EMNLP 2023) [GitHub](https://github.com/intuit/sac3)
    - **Context**: Builds on the concept of self-consistency checks by adding semantic and cross-model evaluations. The approach addresses two types of hallucinations:
@@ -92,9 +92,9 @@ Misidentifying or misattributing content as hallucinated can have legal and repu
      - **Model-Level Hallucinations**: Inaccuracies due to the model's internal limitations.
    - **Key Findings**:
      - Limitations of Existing Methods: Standard self-consistency checks (e.g., sampling-based methods) often fail to detect certain types of hallucinations, particularly those stemming from: (1) Ambiguous or rephrased questions or (2) Model-specific biases or limitations.
-     - **Performance**: SAC3 outperforms prior methods in detecting hallucinations, particularly in challenging cases involving question rephrasings or different model architectures. Makes QA systems more robust to question phrasing and contextual ambiguities. Extends beyond QA to any generative task requiring factual reliability, such as summarization or information retrieval.
-       - **Factuality Assessment**: Measures consistency with external knowledge or human evaluations.
-       - **Response Consistency**: Evaluates agreement across different models or question perturbations.
+   - **Performance**: SAC3 outperforms prior methods in detecting hallucinations, particularly in challenging cases involving question rephrasings or different model architectures. Makes QA systems more robust to question phrasing and contextual ambiguities. Extends beyond QA to any generative task requiring factual reliability, such as summarization or information retrieval.
+     - **Factuality Assessment**: Measures consistency with external knowledge or human evaluations.
+     - **Response Consistency**: Evaluates agreement across different models or question perturbations.
 
 5. **MIND**: [Unsupervised Real-Time Hallucination Detection Based on Internal States](https://arxiv.org/pdf/2403.06448) (ACL 2024) [GitHub](https://github.com/oneal2000/MIND/tree/main)
    - **Context**: Uses LLM internal states during inference for real-time detection. It also presents HELM, a benchmark.
