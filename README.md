@@ -54,7 +54,7 @@ Misidentifying or misattributing content as hallucinated can have legal and repu
       - Diverse tasks (e.g., summarization, question answering).
       - Internal model states during hallucination-prone scenarios.
     
-8. **[Fine-Grained Hallucination Detection and Editing for LLMs](https://arxiv.org/pdf/2401.06855)** [GitHub](https://fine-grained-hallucination.github.io/)
+8. [Fine-Grained Hallucination Detection and Editing for LLMs](https://arxiv.org/pdf/2401.06855) [GitHub](https://fine-grained-hallucination.github.io/)
     - FavaBench Benchmark:
      - Includes ~1,000 fine-grained human judgments on outputs from ChatGPT, Llama2-Chat (70B, 7B), and others.
      - Evaluates hallucination detection across multiple domains, focusing on both detection and correction tasks.
