@@ -39,8 +39,8 @@ Misidentifying or misattributing content as hallucinated can have legal and repu
 - **TruthfulQA**: Benchmark for identifying when models mimic human falsehoods.
      - Composed of 817 questions across 38 diverse categories, including health, law, politics, and finance.
      - Questions are designed to provoke false answers by mirroring misconceptions or errors commonly propagated by humans.
-     - **Truthfulness**: Measures the percentage of responses that align with factual correctness.
-     - **Informativeness**: Assesses how relevant and meaningful the responses are while maintaining truthfulness.
+          - **Truthfulness**: Measures the percentage of responses that align with factual correctness.
+          - **Informativeness**: Assesses how relevant and meaningful the responses are while maintaining truthfulness.
 
 ---
 
