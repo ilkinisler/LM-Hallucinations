@@ -51,8 +51,8 @@ Misidentifying or misattributing content as hallucinated can have legal and repu
 
 5. **MIND**: [Unsupervised Real-Time Hallucination Detection Based on Internal States](https://arxiv.org/pdf/2403.06448) (ACL 2024) [GitHub](https://github.com/oneal2000/MIND/tree/main)
      - HELM Benchmark, standardizes the evaluation of hallucination detection, providing robust metrics for comparison. It includes outputs from multiple LLMs, with a focus on:
-      - Diverse tasks (e.g., summarization, question answering).
-      - Internal model states during hallucination-prone scenarios.
+        - Diverse tasks (e.g., summarization, question answering).
+        - Internal model states during hallucination-prone scenarios.
     
 8. [Fine-Grained Hallucination Detection and Editing for LLMs](https://arxiv.org/pdf/2401.06855) [GitHub](https://fine-grained-hallucination.github.io/)
     - FavaBench Benchmark:
