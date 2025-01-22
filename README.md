@@ -175,7 +175,7 @@ Language models (LMs) frequently produce outputs that are syntactically convinci
        - Context Mismatches: Divergence from the input context or task.
    - **Performance**: FAVA outperformed ChatGPT and GPT-4 on FavaBench in both detection and correction.
     
-9. [Leveraging Graph Structures to Detect Hallucinations in LLMs](https://arxiv.org/pdf/2407.04485) [GitHub] (Jul 2024) (https://github.com/noanonkes/Hallucination-Detection-in-LLMs)
+9. [Leveraging Graph Structures to Detect Hallucinations in LLMs](https://arxiv.org/pdf/2407.04485) (Jul 2024) [GitHub](https://github.com/noanonkes/Hallucination-Detection-in-LLMs)
    - **Context**: Uses Graph Attention Networks (GATs) to identify and differentiate hallucinated from non-hallucinated generations based on their positions and relationships within the latent embedding space.
    - **Key Findings**:
      - Latent Space Structure:
