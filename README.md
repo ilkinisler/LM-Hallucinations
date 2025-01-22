@@ -108,7 +108,7 @@ Language models (LMs) frequently produce outputs that are syntactically convinci
 
 ---
 
-## Detection
+## Detection Methods
 
 1. **TruthfulQA**: [Measuring How Models Mimic Human Falsehoods](https://arxiv.org/pdf/2109.07958) (2022) [GitHub](https://github.com/sylinrl/TruthfulQA)
    - **Context**: Focused on evaluating truthfulness in language models. It also presents a benchmark.
