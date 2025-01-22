@@ -52,7 +52,7 @@ Misidentifying or misattributing content as hallucinated can have legal and repu
 
 ## Detection
 
-### 1. **TruthfulQA**: [Measuring How Models Mimic Human Falsehoods](https://arxiv.org/pdf/2109.07958) (2022)
+1. **TruthfulQA**: [Measuring How Models Mimic Human Falsehoods](https://arxiv.org/pdf/2109.07958) (2022)
 - **Context**: Benchmark for identifying when models mimic human falsehoods.
 - **Details**: Fine-tuned models are specific to TruthfulQA and are not expected to generalize.
 - **Performance**: ~90-95% validation accuracy across all model classes.
