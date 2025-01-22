@@ -71,7 +71,7 @@ Misidentifying or misattributing content as hallucinated can have legal and repu
    - **Key Findings**: Scaling models alone does not resolve truthfulness issues; fine-tuning and improved objectives are critical. 
    - **License**: Apache-2.0.
 
-2. [On Faithfulness and Factuality in Abstractive Summarization] (https://arxiv.org/pdf/2005.00661)** (ACL 2020) [GitHub](https://github.com/google-research-datasets/xsum_hallucination_annotations)
+2. [On Faithfulness and Factuality in Abstractive Summarization](https://arxiv.org/pdf/2005.00661)** (ACL 2020) [GitHub](https://github.com/google-research-datasets/xsum_hallucination_annotations)
    - **Context**: Examines the reliability of neural abstractive summarization systems, highlighting their propensity to hallucinate content—generating information not supported by the input document. The authors focus on faithfulness and factuality in generated summaries through large-scale human evaluations and propose methods to evaluate and improve model outputs.
    - **Key Findings**: Textual entailment measures better correlate with faithfulness than standard metrics. 
    - **License**: Creative Commons Attribution 4.0 International (CC BY 4.0).
