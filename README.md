@@ -1,6 +1,6 @@
-# LLM Hallucinations 🧠
+# LM Hallucination Detection 🧠
 
-A curated list of resources, papers, and tools related to **Large Language Models (LLM) and Hallucinations**.
+A curated list of resources, papers, and tools related to **Language Model (LM)  Hallucination Detection Methods**.
 
 ---
 
@@ -36,121 +36,113 @@ Misidentifying or misattributing content as hallucinated can have legal and repu
 ---
 
 ## Benchmarks and Evaluation Metrics
-- **TruthfulQA**: Benchmark for identifying when models mimic human falsehoods.
+1. **TruthfulQA**: [Measuring How Models Mimic Human Falsehoods](https://arxiv.org/pdf/2109.07958) (2022)
+     - Benchmark for identifying when models mimic human falsehoods.
      - Composed of 817 questions across 38 diverse categories, including health, law, politics, and finance.
      - Questions are designed to provoke false answers by mirroring misconceptions or errors commonly propagated by humans.
           - **Truthfulness**: Measures the percentage of responses that align with factual correctness.
           - **Informativeness**: Assesses how relevant and meaningful the responses are while maintaining truthfulness.
+
+3. **SituatedQA**: [Incorporating Extra-Linguistic Contexts into QA](https://aclanthology.org/2021.emnlp-main.586.pdf) (2021) [GitHub](https://situatedqa.github.io/)
+     - Benchmark for evaluating question-answering (QA) systems on context-dependent questions that require consideration of temporal (time-based) and geographical (location-based) contexts.
+     - Highlights how traditional QA systems fail to adapt to context-specific scenarios, limiting their reliability in dynamic or globally diverse applications.
+          - **Context-Dependent Accuracy**: Common vs. Rare Locations and Updated vs. Stable Facts
+          - **Exact Match (EM) Accuracy, Recall, Precision, and F1 Score**
+
+4. **MIND**: [Unsupervised Real-Time Hallucination Detection Based on Internal States](https://arxiv.org/pdf/2403.06448) (ACL 2024) [GitHub](https://github.com/oneal2000/MIND/tree/main)
+     - HELM Benchmark, standardizes the evaluation of hallucination detection, providing robust metrics for comparison. It includes outputs from multiple LLMs, with a focus on:
+      - Diverse tasks (e.g., summarization, question answering).
+      - Internal model states during hallucination-prone scenarios.
+    
+8. **[Fine-Grained Hallucination Detection and Editing for LLMs](https://arxiv.org/pdf/2401.06855)** [GitHub](https://fine-grained-hallucination.github.io/)
+    - FavaBench Benchmark:
+     - Includes ~1,000 fine-grained human judgments on outputs from ChatGPT, Llama2-Chat (70B, 7B), and others.
+     - Evaluates hallucination detection across multiple domains, focusing on both detection and correction tasks.
+
 
 ---
 
 ## Detection
 
 1. **TruthfulQA**: [Measuring How Models Mimic Human Falsehoods](https://arxiv.org/pdf/2109.07958) (2022) [GitHub](https://github.com/sylinrl/TruthfulQA)
-   - **Context**: Focused on evaluating truthfulness in language models.
+   - **Context**: Focused on evaluating truthfulness in language models. It also presents a benchmark.
      - **Details**: Fine-tuned models are specific to TruthfulQA and are not expected to generalize.
    - **Performance**: ~90-95% validation accuracy in truthfulness classification across all model classes using "GPT-judge" (a finetuned model).
    - **Key Findings**: Scaling models alone does not resolve truthfulness issues; fine-tuning and improved objectives are critical. 
    - **License**: Apache-2.0.
 
----
+2. **[On Faithfulness and Factuality in Abstractive Summarization] (https://arxiv.org/pdf/2005.00661)** (ACL 2020) [GitHub](https://github.com/google-research-datasets/xsum_hallucination_annotations)
+   - **Context**: Examines the reliability of neural abstractive summarization systems, highlighting their propensity to hallucinate content—generating information not supported by the input document. The authors focus on faithfulness and factuality in generated summaries through large-scale human evaluations and propose methods to evaluate and improve model outputs.
+   - **Key Findings**: Textual entailment measures better correlate with faithfulness than standard metrics. 
+   - **License**: Creative Commons Attribution 4.0 International (CC BY 4.0).
 
-2. **REALM / ORQA**
-- **Context**: Combines masked language models with a differentiable retriever.
-- **Details**: Explored only in open-domain extractive QA.
-- **Source Code**: [REALM GitHub](https://github.com/), [ORQA GitHub](https://github.com/)
-- **License**: Apache-2.0.
+3. **SELFCHECKGPT**: [Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models](https://arxiv.org/pdf/2303.08896) (2020) [GitHub](https://github.com/potsawee/selfcheckgpt)
+   - **Context**: A zero-resource hallucination detection method. Does not require access to the model's probability distributions nor external databases. It evaluates factuality using sampling-based consistency checks:
+     - For a given prompt, multiple outputs are sampled.
+     - If the model "knows" the fact, sampled outputs are consistent and factual.
+     - Hallucinated facts lead to divergence in the sampled outputs. 
+       - **Performance**: Can be adapted for any LLM.
+     - Sentence-Level Hallucination Detection: Measures how effectively SelfCheckGPT detects non-factual sentences.
+     - Passage-Level Factuality Assessment: Ranks passages based on their overall factuality.
+  - **License**: MIT.
 
----
+4. **SAC3**: [Reliable Hallucination Detection in Black-Box Language Models](https://arxiv.org/pdf/2311.01740) (EMNLP 2023) [GitHub](https://github.com/intuit/sac3)
+   - **Context**: Builds on the concept of self-consistency checks by adding semantic and cross-model evaluations. The approach addresses two types of hallucinations:
+     - **Question-Level Hallucinations**: Misunderstandings of the input question.
+     - **Model-Level Hallucinations**: Inaccuracies due to the model's internal limitations.
+   - **Key Findings**:
+     - Limitations of Existing Methods: Standard self-consistency checks (e.g., sampling-based methods) often fail to detect certain types of hallucinations, particularly those stemming from: (1) Ambiguous or rephrased questions or (2) Model-specific biases or limitations.
+     - **Performance**: SAC3 outperforms prior methods in detecting hallucinations, particularly in challenging cases involving question rephrasings or different model architectures. Makes QA systems more robust to question phrasing and contextual ambiguities. Extends beyond QA to any generative task requiring factual reliability, such as summarization or information retrieval.
+       - **Factuality Assessment**: Measures consistency with external knowledge or human evaluations.
+       - **Response Consistency**: Evaluates agreement across different models or question perturbations.
 
-### 3. **Retrieval Augmented Generation for Knowledge Intensive NLP Tasks** (2020)
-- **Context**: Enhances knowledge retrieval for fact-intensive tasks like QA and summarization.
-- **Details**: Combines pre-trained parametric memory (BART seq2seq) and non-parametric memory (Wikipedia).
-- **Performance**: SOTA performance on Open-Domain QA tasks; grounded outputs via retrieval.
-- **Challenges**: Computationally expensive, dependent on retrieval corpus quality.
-- **Source Code**: [HuggingFace](https://huggingface.co/).
-- **License**: Apache-2.0.
+5. **MIND**: [Unsupervised Real-Time Hallucination Detection Based on Internal States](https://arxiv.org/pdf/2403.06448) (ACL 2024) [GitHub](https://github.com/oneal2000/MIND/tree/main)
+   - **Context**: Uses LLM internal states during inference for real-time detection. It also presents HELM, a benchmark.
 
----
+6. **Detecting Hallucinations in LLM Generation**: [A Token Probability Approach](https://arxiv.org/pdf/2405.19648) [GitHub](https://github.com/Baylor-AI/HalluDetect)
+   - **Context**: A supervised learning approach for detecting hallucinations in outputs generated by large language models (LLMs). The approach is lightweight, using minimal features derived from token probabilities, and does not require the hallucination detection model to be the same as the LLM that generated the content.
+   - **How it works**:
+     - Token probabilities and vocabulary distributions are collected for the generated text.
+     - Features derived from these probabilities are fed into a supervised learning model (a simple classifier) to detect hallucinations.
+  - **Conclusion**: A scalable, efficient, and accurate method for hallucination detection
 
-### 4. **Retrieval Augmentation Reduces Hallucination in Conversation** (2021)
-- **Context**: Focuses on knowledge-grounded conversational tasks.
-- **Performance**: SOTA on two knowledge-grounded tasks.
-- **Source Code**: [Parl.ai](https://parl.ai/).
-- **License**: MIT.
+7. **Hallucination Detection**: [Robustly Discerning Reliable Answers in
+Large Language Models](https://arxiv.org/pdf/2407.04121)
+  - **Context**: RelD, a robust discriminator for detecting hallucinations in responses generated by large language models (LLMs). RelD is trained using a newly constructed dataset, RelQA, which features bilingual question-answering dialogues and metrics designed to evaluate the faithfulness and consistency of LLM outputs.
+  - **Details**:
+    - RelD Framework: Trained on RelQA, a dataset that includes:
+      - Diverse questions and responses from LLMs.
+      - Annotated hallucinations using a comprehensive set of evaluation metrics.
+    - Capable of detecting hallucinations across multiple LLMs and datasets.
+    - Types of Hallucinations Analyzed: Faithfulness Issues & Inconsistencies
+   - **Performance**:
+     - Effectively identifies hallucinations in both in-distribution (ID) and out-of-distribution (OOD) datasets.
+     - Robust against variations in language, task settings, and dialogue complexities.
 
----
+8. **[Fine-Grained Hallucination Detection and Editing for LLMs](https://arxiv.org/pdf/2401.06855)** [GitHub](https://fine-grained-hallucination.github.io/)
+  - **Context**: Addresses the challenge of fine-grained hallucination detection in LLMs, introducing a taxonomy of hallucinations and a benchmark, FavaBench. It also proposes FAVA, a retrieval-augmented model, to detect and edit hallucinated outputs.
+  - **Details**: Hallucinations manifest in various forms, including:
+    - Factual Errors: Incorrect facts.
+    - Logical Inconsistencies: Contradictory or implausible statements.
+    - Context Mismatches: Divergence from the input context or task.
+  - **Performance**: FAVA outperformed ChatGPT and GPT-4 on FavaBench in both detection and correction.
+    
+9. **[Leveraging Graph Structures to Detect Hallucinations in LLMs](https://arxiv.org/pdf/2407.04485)** [GitHub](https://github.com/noanonkes/Hallucination-Detection-in-LLMs)
+  - **Context**: Uses Graph Attention Networks (GATs) to identify and differentiate hallucinated from non-hallucinated generations based on their positions and relationships within the latent embedding space.
+  - **Key Findings**:
+    - Latent Space Structure:
+      - Hallucinated and non-hallucinated outputs form discernible structures in the latent space.
+      - Embeddings of hallucinated generations are separable from reliable outputs, allowing for graph-based detection.
+    - Graph Attention Networks (GATs):
+       - A graph-based framework where:
+         - Nodes represent outputs (generations).
+         - Edges connect nodes that are closely related in the latent space.
+       - GATs aggregate information through message passing, assigning weights to neighbors based on relevance, enabling precise hallucination detection.
+  - **Performance**:
+    - Achieves results comparable to evidence-based benchmarks without relying on external search or retrieval methods.
+    - Demonstrates strong generalization to unseen data, outperforming traditional approaches in scalability and efficiency.
+    - **Notes**:This approach is a network that requires implementation but can be applied to ChatGPT-generated text by:
+       - Generating embeddings of the outputs.
+       - Constructing a graph structure based on those embeddings.
+       - Using a pre-trained or custom-trained GAT to detect hallucinations.
 
-### 5. **On Faithfulness and Factuality in Abstractive Summarization** (2020)
-- **Context**: Introduces new evaluation frameworks and datasets.
-- **Performance**: Textual entailment measures correlate better with faithfulness than standard metrics.
-- **Challenges**: High hallucination rates in existing models.
-- **Source Code**: [GitHub](https://github.com/).
-- **License**: Creative Commons Attribution 4.0 International (CC BY 4.0).
-
----
-
-### 6. **SITUATEDQA: Incorporating Extra-Linguistic Contexts into QA** (2021)
-- **Context**: Open-retrieval QA dataset with temporal and geographical contexts.
-- **Performance**: Models struggle with context-dependent answers.
-- **Source Code**: [GitHub](https://github.com/).
-
----
-
-### 7. **SELFCHECKGPT: Zero-Resource Black-Box Hallucination Detection**
-- **Details**: A zero-resource hallucination detection method.
-- **Source Code**: [GitHub](https://github.com/).
-
----
-
-### 8. **Reference-Free Hallucination Detection for Large Vision-Language Models**
-- **Details**: Uses uncertainty and consistency-based methods without external tools.
-
----
-
-### 9. **SAC3: Reliable Hallucination Detection in Black-Box Language Models** (EMNLP 2023)
-- **Details**: Uses semantically equivalent question perturbations and cross-model response consistency checks.
-- **Source Code**: [GitHub](https://github.com/).
-
----
-
-### 10. **Unsupervised Real-Time Hallucination Detection Based on Internal States** (ACL 2024)
-- **Details**: Uses LLM internal states during inference for real-time detection.
-- **Source Code**: [GitHub](https://github.com/).
-
----
-
-### 11. **Detecting Hallucinations in LLM Generation: A Token Probability Approach**
-- **Details**: Simple classifiers using token and vocabulary probabilities outperform SOTA outcomes.
-- **Source Code**: [GitHub](https://github.com/).
-
----
-
-### 12. **Hallucination Detection: Discerning Reliable Answers in LLMs**
-- **Details**: The RelD discriminator analyzes bilingual Q&A datasets to detect hallucinations.
-
----
-
-### 13. **Fine-Grained Hallucination Detection and Editing for LLMs**
-- **Details**: Retrieval-augmented models like FAVA detect and correct hallucinations effectively.
-- **Source Code**: [GitHub](https://github.com/).
-
----
-
-### 14. **Detecting and Preventing Hallucinations in Vision-Language Models**
-- **Details**: Combines fine-grained annotations and visual-textual inputs.
-
----
-
-### 15. **Leveraging Graph Structures to Detect Hallucinations in LLMs**
-- **Details**: Uses Graph Attention Networks (GATs) to detect hallucinations robustly.
-- **Source Code**: [GitHub](https://github.com/).
-
----
-
-## 📄 Licensing
-- **Apache-2.0**: [TruthfulQA](https://github.com/), [REALM](https://github.com/), [ORQA](https://github.com/).
-- **MIT**: [Parl.ai](https://parl.ai/).
-- **Creative Commons Attribution 4.0**: [Faithfulness and Factuality](https://github.com/).
-
----
