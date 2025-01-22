@@ -35,19 +35,12 @@ Misidentifying or misattributing content as hallucinated can have legal and repu
 
 ---
 
-## Evaluation Metrics and Benchmarks
-### Metrics:
-- **Truthfulness**: Measures the percentage of responses that align with factual correctness.
-- **Informativeness**: Assesses how relevant and meaningful the responses are while maintaining truthfulness.
-
-- **Precision and Recall**: Measuring how accurately hallucinations are detected.
-- **Faithfulness Scores**: E.g., QAGS (Question-Answering Faithfulness Score), where outputs are evaluated against a reference document.
-- **Factual Consistency**: Evaluated via human annotations or automated tools like TruthfulQA or FactCC.
-- **Groundedness Metrics**: Assess the extent to which generated content is anchored in reliable sources.
-### Benchmarks:
+## Benchmarks and Evaluation Metrics
 - **TruthfulQA**: Benchmark for identifying when models mimic human falsehoods.
      - Composed of 817 questions across 38 diverse categories, including health, law, politics, and finance.
      - Questions are designed to provoke false answers by mirroring misconceptions or errors commonly propagated by humans.
+     - **Truthfulness**: Measures the percentage of responses that align with factual correctness.
+     - **Informativeness**: Assesses how relevant and meaningful the responses are while maintaining truthfulness.
 
 ---
 
@@ -59,26 +52,6 @@ Misidentifying or misattributing content as hallucinated can have legal and repu
    - **Performance**: ~90-95% validation accuracy in truthfulness classification across all model classes using "GPT-judge" (a finetuned model).
    - **Key Findings**: Scaling models alone does not resolve truthfulness issues; fine-tuning and improved objectives are critical. 
    - **License**: Apache-2.0.
-
-Key Findings:
-Benchmark Design:
-
-817 questions across 38 categories designed to provoke falsehoods.
-Evaluates truthfulness and informativeness.
-Performance:
-
-Best model (GPT-3-175B) achieved 58% truthfulness compared to 94% for humans.
-Larger models were more prone to falsehoods, highlighting the inverse scaling phenomenon.
-Applications:
-
-Detecting hallucinations in AI-generated text.
-Assessing reliability for critical applications like healthcare and law.
-Informing training strategies to reduce biases.
-Traceability:
-
-While not directly focusing on output tracing, the benchmark aids in understanding the origins of imitative falsehoods.
-Conclusion:
-Scaling models alone does not resolve truthfulness issues; fine-tuning and improved objectives are critical. TruthfulQA is a valuable tool for evaluating and improving model reliability.
 
 ---
 
