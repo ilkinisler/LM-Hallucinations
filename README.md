@@ -1,6 +1,6 @@
-# LLM Hallucination 🧠
+# LLM Hallucinations 🧠
 
-A curated list of resources, papers, and tools related to **Large Language Models (LLM) and Hallucination**.
+A curated list of resources, papers, and tools related to **Large Language Models (LLM) and Hallucinations**.
 
 ---
 
@@ -50,20 +50,7 @@ Misidentifying or misattributing content as hallucinated can have legal and repu
 
 ---
 
-## Evaluation-Benchmark
-### 2023
-- **TruthfulQA: Measuring How Models Mimic Human Falsehoods** - [Author(s)](https://arxiv.org/pdf/2109.07958) - A benchmark with a focus on identifying when models mimic human falsehoods and GPT-judge (LM QA).
-- **Paper Title** - [Author(s)](https://example.com) - Short description.
-
----
-
 ## Detection
-- [Tool Name](https://example.com) - Description.
-
----
-
-
-## 🛠️ Methods and Details
 
 ### 1. **TruthfulQA: Measuring How Models Mimic Human Falsehoods** (2022)
 - **Context**: Benchmark for identifying when models mimic human falsehoods.
