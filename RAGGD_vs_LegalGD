@@ -1,0 +1,28 @@
+RAG Groundedness Detection (General) vs Legal Groundedness Detection
+
+Both RAG Groundedness Detection and Legal Groundedness Detection aim to evaluate whether AI-generated responses are explicitly supported by retrieved documents. However, there are key differences in their implementation, application domains, and strengths.
+
+RAG Groundedness Detection (General AI)
+✅ Context: Evaluates groundedness for general open-domain AI-generated responses (e.g., summarization, QA, chatbots).
+✅ Document Retrieval: Uses FAISS for semantic search over a knowledge base.
+✅ Response Generation: Uses GPT-4 or Llama 2 to generate answers from retrieved documents.
+✅ Groundedness Detection: Measures cosine similarity between response sentences and retrieved documents.
+✅ Grounding Score Calculation: Computes a groundedness percentage based on sentence-level similarity.
+✅ Handling Paraphrased Responses: Can detect similar content but struggles with paraphrased responses.
+✅ Scalability & Efficiency: Faster because it uses only cosine similarity.
+✅ Application: Useful for evaluating any RAG-based AI system, e.g., news summarization, research papers, educational tools.
+
+Feature	RAG Groundedness Detection (General AI)	Legal Groundedness Detection
+✅ Context: Specifically designed for legal AI systems, where accuracy and traceability are crucial.
+✅ Document Retrieval: Uses FAISS to retrieve relevant legal documents.
+✅ Response Generation: Uses GPT-4 or Llama 2, but with a more structured, factual legal focus.
+✅ Groundedness Detection: Uses RoBERTa-NLI (Natural Language Inference) to check if responses are logically entailed by legal sources.
+✅ Grounding Score Calculation: Computes a groundedness percentage using NLI entailment verification.
+✅ Handling Paraphrased Responses: Better at detecting paraphrases, as NLI models understand logical entailment.
+✅ Scalability & Efficiency: Slower due to NLI model inference time.
+✅ Application: Best for legal AI, where factual correctness is critical, e.g., contract analysis, legal chatbots, compliance checks.
+
+- Legal Groundedness Detection is more accurate but slower due to NLI verification.
+- RAG Groundedness Detection is more efficient but may struggle with nuanced paraphrasing.
+- If precision is critical (e.g., law, medicine, finance) → Use Legal Groundedness Detection.
+- If you need fast, broad domain grounding verification → Use RAG Groundedness Detection.
