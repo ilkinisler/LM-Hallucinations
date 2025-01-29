@@ -251,6 +251,11 @@ Considers both retrieved sources and model pretraining data.
     - Test-time adaptation allows LLMs to actively correct ungrounded claims.
     - Reduces hallucinated references compared to traditional citation models.
 
+Final Takeaways:
+  - For real-time grounding detection: Use CaLM (validates outputs with a smaller LM).
+  - For evaluating retrieval-based grounding: The RAG study & legal QA benchmark are best.
+  - For grounding improvement in citations: AGREE framework enhances accuracy.
+
 ---
 
 ## Important resources
