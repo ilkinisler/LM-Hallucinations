@@ -1,2 +1,19 @@
-## ChatGPTCheck vs SAC^3
+ChatGPTCheck vs SAC^3
+
+
+SAC^3
+
+Motivation: Key observation: solely checking the self-consistency of LLMs is not sufficient for deciding factuality. 
+- Generated responses to the same question may be consistent but non-factual. 
+- Generated responses may be inconsistent with the original answer that is factually correct.
+
+The major time cost of SAC^3 is from two phases: 
+- sampled evaluations and 
+- pair-wise consistency checks. 
+However, both phases can be accelerated by using multithread parallelization. 
+We provide a parallelized version to significantly reduce the time cost while maintaining the same performance accuracy.
+
+We tested 100 data from HotpotQA-halu dataset, with different sample sizes (3,5,10,15). 
+The average time per query/question is slightly increasing as the sample size increases but the AUROC performance is almost consistent. 
+
 
