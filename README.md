@@ -231,7 +231,7 @@ Considers both retrieved sources and model pretraining data.
     - Larger models improve grounding slightly but still hallucinate information.
     - Instruction tuning improves grounding but does not fully resolve the issue.
 
-4. How Well Do Large Language Models Truly Ground?
+4. [How Well Do Large Language Models Truly Ground?](https://arxiv.org/pdf/2311.09069)
   - **Context**: Challenges the common definition of grounding (just having a correct answer). Proposes a stricter definition:
     - The response must fully use the provided knowledge.
     - The response must stay within the given knowledge limits.
@@ -242,7 +242,7 @@ Considers both retrieved sources and model pretraining data.
     - Larger models slightly improve grounding but still introduce hallucinations.
     - Newer instruction-tuned models perform better in grounding tasks.
 
-5. Effective Large Language Model Adaptation for Improved Grounding and Citation Generation
+5. [Effective Large Language Model Adaptation for Improved Grounding and Citation Generation](https://arxiv.org/pdf/2311.09533)
   - **Context**: Addresses the issue of hallucinated citations in LLMs. Introduces AGREE, a framework for improving grounding and citation generation.
   - **How It Works (Applicability)**: Fine-tunes LLMs to ensure self-grounded claims. Uses retrieved passages to verify citation accuracy. Introduces test-time adaptation (TTA) where models actively retrieve missing evidence during response generation.
   - **Performance**: Outperforms prompting-based and post-hoc citation approaches across five datasets.
