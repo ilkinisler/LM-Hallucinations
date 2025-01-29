@@ -1,6 +1,6 @@
 RAG Groundedness Detection (General) vs Legal Groundedness Detection
 
-Both RAG Groundedness Detection and Legal Groundedness Detection aim to evaluate whether AI-generated responses are explicitly supported by retrieved documents. However, there are key differences in their implementation, application domains, and strengths.
+Both RAG Groundedness Detection and Legal Groundedness Detection aim to evaluate whether AI-generated responses are explicitly supported by retrieved documents. 
 
 RAG Groundedness Detection (General AI)
 ✅ Context: Evaluates groundedness for general open-domain AI-generated responses (e.g., summarization, QA, chatbots).
