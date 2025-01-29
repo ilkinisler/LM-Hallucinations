@@ -221,7 +221,7 @@ Discrepancies trigger an iterative feedback loop for refinement.
     - Feedback loops improve response groundedness over multiple refinement iterations.
     - Can be used alongside RAG systems to improve factual reliability.
 
-3. [Groundedness in Retrieval-Augmented Long-Form Generation: An Empirical Study](https://arxiv.org/pdf/2404.07060) (Apr 2024)
+3. [Groundedness in Retrieval-Augmented Long-Form Generation: An Empirical Study](https://arxiv.org/pdf/2404.07060) (Apr 2024) - Implemented by myself.
   - **Context**: Investigates how well retrieval-augmented generation (RAG) models ground their long-form responses.
   - **How It Works (Applicability)**: Analyzes whether each sentence in an AI-generated long-form answer is explicitly grounded in retrieved documents.
 Considers both retrieved sources and model pretraining data.
