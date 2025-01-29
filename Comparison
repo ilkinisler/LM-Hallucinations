@@ -1,5 +1,14 @@
 ChatGPTCheck vs SAC^3
 
+ChatGPTCheck
+
+label_mapping = {
+    'accurate': 0.0,
+    'minor_inaccurate': 0.5,
+    'major_inaccurate': 1.0,
+}
+
+Data: dataset = load_dataset("potsawee/wiki_bio_gpt3_hallucination") # 20 samples per prompt
 
 SAC^3
 
@@ -11,9 +20,11 @@ The major time cost of SAC^3 is from two phases:
 - sampled evaluations and 
 - pair-wise consistency checks. 
 However, both phases can be accelerated by using multithread parallelization. 
-We provide a parallelized version to significantly reduce the time cost while maintaining the same performance accuracy.
 
-We tested 100 data from HotpotQA-halu dataset, with different sample sizes (3,5,10,15). 
+Test: 100 data from HotpotQA-halu dataset, with different sample sizes (3,5,10,15). 
 The average time per query/question is slightly increasing as the sample size increases but the AUROC performance is almost consistent. 
+
+Data: https://github.com/RUCAIBox/HaluEval 
+
 
 
