@@ -26,3 +26,9 @@ Feature	RAG Groundedness Detection (General AI)	Legal Groundedness Detection
 - RAG Groundedness Detection is more efficient but may struggle with nuanced paraphrasing.
 - If precision is critical (e.g., law, medicine, finance) → Use Legal Groundedness Detection.
 - If you need fast, broad domain grounding verification → Use RAG Groundedness Detection.
+
+Where FAISS is Used
+✅ Google Search, Bing AI (for semantic search)
+✅ OpenAI’s RAG models (for document retrieval)
+✅ Facebook’s AI-powered recommendations
+✅ Vector databases like Pinecone, Weaviate, Milvus
