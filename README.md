@@ -3,6 +3,14 @@
 A curated list of resources, papers, and tools related to **Language Model (LM)  Hallucination Detection Methods**.
 
 ---
+Look into:
+- https://assets.amazon.science/53/a8/a94e8c9c44658dcb182b367d7295/hallumeasure-fine-grained-hallucination-measurement-using-chain-of-thought-reasoning.pdf
+- https://github.com/amazon-science/RefChecker/tree/main
+- https://arxiv.org/pdf/2410.08764
+- https://github.com/yuh-zha/AlignScore
+- https://www.vectara.com/blog/hhem-v2-a-new-and-improved-factual-consistency-scoring-model
+---
+
 
 ## Overview
 
