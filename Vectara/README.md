@@ -1,4 +1,4 @@
-The Hughes Hallucination Evaluation Model (HHEM) v2 is an advanced tool designed to assess the factual consistency of text, particularly in outputs from Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) systems, making it great for checking if generated answers actually align with source materials. Below is a summary of its key features and performance metrics:
+The Hughes Hallucination Evaluation Model (HHEM) v2 is an advanced tool designed to assess the factual consistency of text, particularly in outputs from Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) systems. It is great for checking if generated answers actually align with source materials. 
 
 ## Generalization
 
